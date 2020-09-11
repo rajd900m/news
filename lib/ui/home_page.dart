@@ -146,8 +146,7 @@ class ListItem extends StatelessWidget {
       child: ListTile(
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(5.0),
-          child: Hero(
-            tag: article.urlToImage,
+          child: Container(
             child: FadeInImage.assetNetwork(
               placeholder: 'assets/error.png',
               image: article.urlToImage,
@@ -159,7 +158,18 @@ class ListItem extends StatelessWidget {
         ),
         title: Text(article.title),
         subtitle: Text(article.publishedAt),
+        onTap: () {
+          startNewsDetailPage(context, article);
+        },
       ),
     );
+  }
+
+  void startNewsDetailPage(BuildContext context, Articles article) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ArticleDetailPage(
+        article: article,
+      );
+    }));
   }
 }

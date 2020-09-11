@@ -6,7 +6,16 @@ abstract class ArticleState extends Equatable {
   const ArticleState();
 
   @override
+  // TODO: implement hashCode
+  int get hashCode => super.hashCode;
+
+  @override
   List<Object> get props => [];
+
+  @override
+  bool operator ==(Object other) {
+    return super == other;
+  }
 }
 
 class ArticleInitialState extends ArticleState {}
@@ -28,12 +37,24 @@ class ArticleLoadedState extends ArticleState {
   @override
   // TODO: implement props
   List<Object> get props => [articles, hasReachedMax];
+
+  @override
+  // TODO: implement hashCode
+  int get hashCode => super.hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    // TODO: implement ==
+    return super == other;
+  }
+
 }
 
 class ArticleErrorState extends ArticleState {
   String message;
 
   ArticleErrorState({@required this.message});
+
 
   @override
   // TODO: implement props
